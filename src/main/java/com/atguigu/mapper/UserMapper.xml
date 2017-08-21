@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.mapper.UserMapper">
+	
+	<select id="select_user_account" parameterType="com.atguigu.bean.T_MALL_USER_ACCOUNT" resultType="com.atguigu.bean.T_MALL_USER_ACCOUNT">
+		select * from t_mall_user_account where yh_mch=#{yh_mch} and yh_mm = #{yh_mm}
+	</select>
+	<insert id="insert_user_account">
+		insert into t_mall_user_account
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+		    <if test="yh_mch!=null">yh_mch,</if>
+		    <if test="yh_nch!=null">yh_nch,</if>
+		    <if test="yh_mm!=null">yh_mm,</if>
+		    <if test="yh_xm!=null">yh_xm,</if>
+		    <if test="yh_shjh!=null">yh_shjh,</if>
+		    <if test="yh_yx!=null">yh_yx,</if>
+		    <if test="yh_tx!=null">yh_tx,</if>
+		    <if test="yh_jb!=null">yh_jb,</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+		    <if test="yh_mch!=null">#{yh_mch},</if>
+		    <if test="yh_nch!=null">#{yh_nch},</if>
+		    <if test="yh_mm!=null">#{yh_mm},</if>
+		    <if test="yh_xm!=null">#{yh_xm},</if>
+		    <if test="yh_shjh!=null">#{yh_shjh},</if>
+		    <if test="yh_yx!=null">#{yh_yx},</if>
+		    <if test="yh_tx!=null">#{yh_tx},</if>
+		    <if test="yh_jb!=null">#{yh_jb},</if>
+		</trim>
+	</insert>
+</mapper>
